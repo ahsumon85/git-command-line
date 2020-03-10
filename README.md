@@ -55,7 +55,7 @@ git checkout <branch-name>				# login in created branch
 git branch						# used see all git branches
 git add .						# add changes code on the local
 git commit -m “git push in dev branch”   		# used for git commit
-git commit -m "Test" --date=format:short:2020-11-06  	# used for commit specific date
+git commit -m "Test" --date=format:short:2026-11-06  	# used for commit specific date
 git commit --amend -m "New commit message"  		#Changing an Older or Multiple Commits
 git push origin dev	 				# used for push in dev branch
 git checkout master 					# used for loing master branch
@@ -192,3 +192,179 @@ Before you can duplicate a repository and push to your new copy, or *mirror*, of
    ```
 
 ###  Multiple git repo configure in single machine
+
+## 🔑 1. Create TWO SSH keys
+
+### Personal
+
+```
+ssh-keygen -t ed25519 -C "your-personal-email@gmail.com"
+```
+
+Save as:
+
+```
+~/.ssh/id_ed25519_personal
+```
+
+### Work
+
+```
+ssh-keygen -t ed25519 -C "your-work-email@company.com"
+```
+
+Save as:
+
+```
+~/.ssh/id_ed25519_work
+```
+
+------
+
+## 🔗 2. Add keys to GitHub
+
+Copy keys:
+
+```
+cat ~/.ssh/id_ed25519_personal.pub
+```
+
+👉 Add to **GitHub Personal account (ahsumon81)**
+
+```
+cat ~/.ssh/id_ed25519_work.pub
+```
+
+👉 Add to **GitHub Work account (ahsumon82)**
+
+------
+
+## ⚙️ 3. Configure SSH (MOST IMPORTANT 🔥)
+
+Edit:
+
+```
+nano ~/.ssh/config
+```
+
+Add:
+
+```
+# Personal GitHub
+Host github-personal
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519_personal
+  IdentitiesOnly yes
+
+# Work GitHub
+Host github-work
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519_work
+  IdentitiesOnly yes
+```
+
+👉 `IdentitiesOnly yes` prevents wrong key usage (very important)
+
+------
+
+## 🔐 4. Load SSH keys
+
+```
+ssh-add -D
+ssh-add ~/.ssh/id_ed25519_personal
+ssh-add ~/.ssh/id_ed25519_work
+```
+
+Check:
+
+```
+ssh-add -l
+```
+
+------
+
+## 🧪 5. Test accounts
+
+```
+ssh -T git@github-personal
+```
+
+👉 Should show: **ahsumon81**
+
+```
+ssh -T git@github-work
+```
+
+👉 Should show: **ahsumon82**
+
+------
+
+## 🔗 6. Clone / Set repo correctly
+
+### 👉 Personal repo
+
+```
+git clone git@github-personal:ahsumon81/repo-name.git
+```
+
+### 👉 Work repo
+
+```
+git clone git@github-work:ahasanhabib82/repo-name.git
+```
+
+------
+
+## 🔄 7. Fix existing repo
+
+If already cloned:
+
+```
+git remote set-url origin git@github-personal:ahsumon81/repo-name.git
+```
+
+or
+
+```
+git remote set-url origin git@github-work:ahasanhabib82/repo-name.git
+```
+
+------
+
+## 👤 8. Set per-repo identity (VERY IMPORTANT)
+
+Inside each repo:
+
+### Personal repo
+
+```
+git config user.name "personal-username"
+git config user.email "your-personal-email@gmail.com"
+```
+
+### Work repo
+
+```
+git config user.name "work-username"
+git config user.email "your-work-email@company.com"
+```
+
+------
+
+# 🧠 Pro Setup (Recommended 🔥)
+
+Automatically separate work & personal folders:
+
+```
+mkdir ~/work
+mkdir ~/personal
+```
+
+Then use:
+
+```
+git config --global includeIf.gitdir:~/work/.path ~/.gitconfig-work
+git config --global includeIf.gitdir:~/personal/.path ~/.gitconfig-personal
+```

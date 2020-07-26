@@ -4,10 +4,3 @@ test new branch
 branch test from master
 
 
-
-git test from test-again
-
-branch test 2
-
-branch test from master
-

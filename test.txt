@@ -9,3 +9,14 @@ git test from test-again
 
 git test after merge in test-again
 
+
+test new branch
+
+
+branch test from master
+
+
+git test from test-again
+
+
+git test after merge in test-again

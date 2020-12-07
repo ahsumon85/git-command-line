@@ -25,9 +25,8 @@ git log --diff-filter=D --author=Batman --summary  # all files deleted by Batman
 
 How to restore a deleted file:
 
-```
-git checkout <commit>~1 <filename>
-```
+`git checkout <commit>~1 <filename>`
+
 
 
 
@@ -35,15 +34,12 @@ git checkout <commit>~1 <filename>
 
 But lets say I don’t remember the filename of that file I deleted in a fit of cleanup passion. I do remember the name of one of the functions in it though. Here is how to deal with that. Search the contents of all files that have ever existed in git for a string:
 
-```
-git log --summary -S<string> [<path/to/file>] [--since=2009.1.1] [--until=2010.1.1]
-```
+
+`git log --summary -S<string> [<path/to/file>] [--since=2009.1.1] [--until=2010.1.1]`
 
 Another way to do this:
 
-```
-git rev-list --all | xargs git grep 'string'
-```
+`git rev-list --all | xargs git grep 'string'`
 
 
 
@@ -76,15 +72,11 @@ git push origin master 					# used for push code in master branch
 
 Create a **.gitignore** file for your repository.
 
-```
-$ touch .gitignore
-```
+`$ touch .gitignore`
 
 If you want to ignore a file that is already checked in, you must untrack the file before you add a rule to ignore it. From your terminal, untrack the file.
 
-```
-$ git rm --cached <FILENAME>
-```
+`$ git rm --cached <FILENAME>`
 
 
 

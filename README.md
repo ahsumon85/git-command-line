@@ -4,7 +4,7 @@
 
 ### **Git global configuration**
 
-##### To used view git contributions on graph by user commit
+To used view git contributions on graph by user commit
 
 ```
 git config --global user.name "YOUR NAME"

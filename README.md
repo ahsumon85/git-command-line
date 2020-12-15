@@ -53,13 +53,13 @@ git branch <branch-name>         			# create git branch
 git branch -d <branch-name>				# used for`delete branch locally
 git branch -m <new_name>				# Rename the current local branch
 git push origin -u <new_name>				# Push the <new_name> local branch
-git push origin --delete <branch-name>		# used for delete remote branch
+git push origin --delete <branch-name>			# used for delete remote branch
 git checkout <branch-name>				# login in created branch 
 git branch						# used see all git branches
-git add .
+git add .						# add changes code on the local
 git commit -m “git push in dev branch”   		# used for git commit
 git commit -m "Test" --date=format:short:2020-11-06  	# used for commit specific date
-git commit --amend -m "New commit message"  #Changing an Older or Multiple Commits
+git commit --amend -m "New commit message"  		#Changing an Older or Multiple Commits
 git push origin dev	 				# used for push in dev branch
 git checkout master 					# used for loing master branch
 git fetch origin dev					# used for fetching code from dev branch

@@ -1,5 +1,0 @@
-
-## github contributions graph doesn't show my contributions
-$ git config --global user.name "YOUR NAME"
-$ git config --global user.email "YOUR EMAIL ADDRESS"
-

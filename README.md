@@ -6,9 +6,10 @@
 
 ##### To used view git contributions on graph by user commit
 
-`git config --global user.name "YOUR NAME"`
-
-`git config --global user.email "YOUR EMAIL ADDRESS"`
+```
+git config --global user.name "YOUR NAME"
+git config --global user.email "YOUR EMAIL ADDRESS"
+```
 
 
 

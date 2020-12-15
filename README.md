@@ -1,10 +1,10 @@
-## git-command-line
+## Git Command Line
 
 
 
-#### -----------------Git global configuration------------------
+### **Git global configuration**
 
-##### To used view git contributions on graph by user commit contributions 
+##### To used view git contributions on graph by user commit
 
 `$ git config --global user.name "YOUR NAME"`
 
@@ -12,7 +12,7 @@
 
 
 
-##### -----------------find and restore deleted files with git -----------------
+### **Find and restore deleted files with git**
 
 Don’t be afraid to delete files from your git repository. You can get restore them. You can even search for a string in a deleted file. Here is how to find a deleted file and its commit:
 
@@ -30,7 +30,7 @@ git checkout <commit>~1 <filename>
 
 
 
-#### ---------search the contents of deleted files -------------
+###  **Search the contents of deleted files**
 
 But lets say I don’t remember the filename of that file I deleted in a fit of cleanup passion. I do remember the name of one of the functions in it though. Here is how to deal with that. Search the contents of all files that have ever existed in git for a string:
 
@@ -46,59 +46,38 @@ git rev-list --all | xargs git grep 'string'
 
 
 
-#### ---------------------- git branching and push, pull ------------------------
-
-git branch <branch-name>         		# create git branch
-
-git branch -d <branch-name>		# used for `delete branch locally`
+###  **Git branching and push, pull**
 
 ```
-git branch -m <new_name>``		# Rename the current local branch
-git push origin -u <new_name>		# Push the ``<new_name>`` local branch
-git push origin --delete <branch-name>	# used for delete remote branch
-```
-
-git checkout <branch-name>		# login in created branch 
-
-git branch					# used see all git branches
-
+git branch <branch-name>         			# create git branch
+git branch -d <branch-name>					# used for `delete branch locally`
+git branch -m <new_name>					# Rename the current local branch
+git push origin -u <new_name>				# Push the <new_name> local branch
+git push origin --delete <branch-name>		# used for delete remote branch
+git checkout <branch-name>					# login in created branch 
+git branch									# used see all git branches
 git add .
-
 git commit -m “git push in dev branch”   	# used for git commit
-
 git commit -m "Test" --date=format:short:2020-11-06  	# used for commit specific date
-
-git commit --amend -m "New commit message"    #Changing an Older or Multiple Commits
-
-git push origin dev	 			# used for push in dev branch
-
-git checkout master 				# used for loing master branch
-
-git fetch origin dev				# used for fetching code from dev branch
-
-git merge dev					# used for code merge with dev in mister branch
-
-git add .					# used for adding all updated code
-
-git commit -m “push in master branch”  	# used for git commit 
-
-git push origin master 			# used for push code in master branch
+git commit --amend -m "New commit message"  #Changing an Older or Multiple Commits
+git push origin dev	 						# used for push in dev branch
+git checkout master 						# used for loing master branch
+git fetch origin dev						# used for fetching code from dev branch
+git merge dev							# used for code merge with dev in mister branch
+git add .									# used for adding all updated code
+git commit -m “push in master branch”  		# used for git commit 
+git push origin master 						# used for push code in master branch
+```
 
 
 
+### **Git ignore**
 
-#### ---------------------git ignore------------------------
-
-Create a *.**gitignore* file for your repository.
-
-
+Create a **.gitignore** file for your repository.
 
 ```
 $ touch .gitignore
 ```
-
-
-
 
 If you want to ignore a file that is already checked in, you must untrack the file before you add a rule to ignore it. From your terminal, untrack the file.
 
@@ -108,30 +87,25 @@ $ git rm --cached <FILENAME>
 
 
 
-## **----------------------git logs ------------------------**
+###  **Git logs**
 
-## git log --oneline --graph			# to see git online logs with graps
-
-## 
-
-## 
+`git log --oneline --graph					# to see git online logs with graps`
 
 
 
+### **Git tagging**
 
-## **----------------------git tagging ------------------------**
+#####  how to create a tag in a GitHub repository:
 
-# **how to create a tag in a GitHub repository:**
-
-git tag <v1.0>				# used for create new tag
+`git tag <v1.0>								# used for create new tag`
 
 This will create a local tag with the current state of the branch you are on. When pushing to your remote repo, tags are NOT included by default. You will need to explicitly say that you want to push your tags to your remote repo:
 
-git push origin –tags		# used for push all tag in remote repo
+`git push origin –tags						# used for push all tag in remote repo`
 
 **if you just want to push a single tag:**
 
-git push origin <tag>		# used for push single repository
+`git push origin <tag>						# used for push single repository`
 
 
 
@@ -162,7 +136,9 @@ v1.8.5.4
 v1.8.5.5
 ```
 
-### **Annotated Tags**
+
+
+###  **Annotated Tags**
 
 Creating an annotated tag in Git is simple. The easiest way is to specify `-a` when you run the `tag` command:
 
@@ -181,6 +157,8 @@ You can see the tag data along with the commit that was tagged by using the `git
 ```
 $ git show v1.4
 ```
+
+
 
 ### **Deleting Tags**
 

@@ -51,7 +51,7 @@ git rev-list --all | xargs git grep 'string'
 
 ```
 git branch <branch-name>         			# create git branch
-git branch -d <branch-name>				# used for`delete branch locally
+git branch -d <branch-name>				# used for delete branch locally
 git branch -m <new_name>				# Rename the current local branch
 git push origin -u <new_name>				# Push the <new_name> local branch
 git push origin --delete <branch-name>			# used for delete remote branch
@@ -170,3 +170,31 @@ $ git tag -d v1.4-lw
 ```
 
 
+
+###  **Duplicating a fork repository**
+
+Before you can duplicate a repository and push to your new copy, or *mirror*, of the repository, you must [create the new repository](https://docs.github.com/en/free-pro-team@latest/articles/creating-a-new-repository) on GitHub. In these examples, `exampleuser/new-repository` or `exampleuser/mirrored` are the mirrors.
+
+**Mirroring a repository**
+
+1. Open Terminal.
+
+2. Create a bare clone of the repository.
+
+   ```shell
+   $ git clone --bare https://github.com/exampleuser/old-repository.git
+   ```
+
+3. Mirror-push to the new repository.
+
+   ```shell
+   $ cd old-repository.git
+   $ git push --mirror https://github.com/exampleuser/new-repository.git
+   ```
+
+4. Remove the temporary local repository you created earlier.
+
+   ```shell
+   $ cd ..
+   $ rm -rf old-repository.git
+   ```

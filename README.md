@@ -190,3 +190,5 @@ Before you can duplicate a repository and push to your new copy, or *mirror*, of
    $ cd ..
    $ rm -rf old-repository.git
    ```
+
+###  Multiple git repo configure in single machine

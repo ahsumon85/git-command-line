@@ -191,9 +191,9 @@ Before you can duplicate a repository and push to your new copy, or *mirror*, of
    $ rm -rf old-repository.git
    ```
 
-###  Multiple git repo configure in single machine
+## Multiple git repo configure in single machine
 
-## 🔑 1. Create TWO SSH keys
+###  1. Create TWO SSH keys
 
 ### Personal
 

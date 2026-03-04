@@ -239,7 +239,7 @@ cat ~/.ssh/id_ed25519_work.pub
 
 ------
 
-## ⚙️ 3. Configure SSH (MOST IMPORTANT 🔥)
+## ⚙️ 3. Configure SSH (MOST IMPORTANT)
 
 Edit:
 
